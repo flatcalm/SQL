@@ -58,7 +58,7 @@ WHERE hire_date LIKE '___05%';
 
 -- IS NULL (null값을 찾음)
 SELECT * FROM employees
-WHERE manager_id IS NULL;
+WHERE manager_id = NULL; -- (x) 작동하지 않음.
 
 SELECT * FROM employees
 WHERE commission_pct IS NULL;
@@ -68,6 +68,11 @@ WHERE commission_pct IS NOT NULL;
 
 -- AND, OR
 -- AND가 OR보다 연산 순서가 빠름.
+SELECT * FROM employees
+WHERE job_id = 'IT_PROG'
+OR job_id = 'FI_MGR'
+AND salary >= 6000; -- AND를 먼저 연산하기 때문에 원하는 결과를 얻기 힘듬.
+
 SELECT * FROM employees
 WHERE (job_id = 'IT_PROG'
 OR job_id = 'FI_MGR')
