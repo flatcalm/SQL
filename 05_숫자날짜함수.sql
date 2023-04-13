@@ -31,11 +31,11 @@ SELECT systimestamp FROM dual;
 SELECT sysdate + 1 FROM dual;
 
 SELECT first_name, sysdate - hire_date
-FROM employees;
+FROM employees; -- 일수
 
 SELECT first_name, hire_date,
 (sysdate - hire_date) / 7 AS week
-FROM employees; -- 주차
+FROM employees; -- 주수
 
 SELECT first_name, hire_date,
 (sysdate - hire_date) / 365 AS year
