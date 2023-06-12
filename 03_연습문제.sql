@@ -1,67 +1,67 @@
--- 1. ¸ðµç »ç¿øÀÇ »ç¿ø¹øÈ£, ÀÌ¸§, ÀÔ»çÀÏ, ±Þ¿©¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+-- 1. ëª¨ë“  ì‚¬ì›ì˜ ì‚¬ì›ë²ˆí˜¸, ì´ë¦„, ìž…ì‚¬ì¼, ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
     employee_id, first_name, hire_date, salary
 FROM 
     employees;
--- 2. ¸ðµç »ç¿øÀÇ ÀÌ¸§°ú ¼ºÀ» ºÙ¿© Ãâ·ÂÇÏ¼¼¿ä. ¿­ º°ÄªÀº nameÀ¸·Î ÇÏ¼¼¿ä.
+-- 2. ëª¨ë“  ì‚¬ì›ì˜ ì´ë¦„ê³¼ ì„±ì„ ë¶™ì—¬ ì¶œë ¥í•˜ì„¸ìš”. ì—´ ë³„ì¹­ì€ nameìœ¼ë¡œ í•˜ì„¸ìš”.
 SELECT
     first_name || ' ' || last_name AS name
 FROM
     employees;
--- 3. 50¹ø ºÎ¼­ »ç¿øÀÇ ¸ðµç Á¤º¸¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+-- 3. 50ë²ˆ ë¶€ì„œ ì‚¬ì›ì˜ ëª¨ë“  ì •ë³´ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
     *
 FROM
     employees
 WHERE
     department_id = 50;
--- 4. 50¹ø ºÎ¼­ »ç¿øÀÇ ÀÌ¸§, ºÎ¼­¹øÈ£, Á÷¹«¾ÆÀÌµð¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+-- 4. 50ë²ˆ ë¶€ì„œ ì‚¬ì›ì˜ ì´ë¦„, ë¶€ì„œë²ˆí˜¸, ì§ë¬´ì•„ì´ë””ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
     first_name, department_id, job_id
 FROM
     employees
 WHERE
     department_id = 50;
--- 5. ¸ðµç »ç¿øÀÇ ÀÌ¸§, ±Þ¿© ±×¸®°í 300´Þ·¯ ÀÎ»óµÈ ±Þ¿©¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+-- 5. ëª¨ë“  ì‚¬ì›ì˜ ì´ë¦„, ê¸‰ì—¬ ê·¸ë¦¬ê³  300ë‹¬ëŸ¬ ì¸ìƒëœ ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
     first_name, salary, salary+300 as salary2
 FROM
     employees;
--- 6. ±Þ¿©°¡ 10000º¸´Ù Å« »ç¿øÀÇ ÀÌ¸§°ú ±Þ¿©¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+-- 6. ê¸‰ì—¬ê°€ 10000ë³´ë‹¤ í° ì‚¬ì›ì˜ ì´ë¦„ê³¼ ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
     first_name, salary
 FROM
     employees
 WHERE
     salary > 10000;
--- 7. º¸³Ê½º¸¦ ¹Þ´Â »ç¿øÀÇ ÀÌ¸§°ú Á÷¹«, º¸³Ê½ºÀ²À» Ãâ·ÂÇÏ¼¼¿ä.
+-- 7. ë³´ë„ˆìŠ¤ë¥¼ ë°›ëŠ” ì‚¬ì›ì˜ ì´ë¦„ê³¼ ì§ë¬´, ë³´ë„ˆìŠ¤ìœ¨ì„ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
     first_name, job_id, commission_pct
 FROM
     employees
 WHERE
     commission_pct IS NOT NULL;
--- 8. 2003³âµµ ÀÔ»çÇÑ »ç¿øÀÇ ÀÌ¸§°ú ÀÔ»çÀÏ ±×¸®°í ±Þ¿©¸¦ Ãâ·ÂÇÏ¼¼¿ä.(BETWEEN ¿¬»êÀÚ »ç¿ë)
+-- 8. 2003ë…„ë„ ìž…ì‚¬í•œ ì‚¬ì›ì˜ ì´ë¦„ê³¼ ìž…ì‚¬ì¼ ê·¸ë¦¬ê³  ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.(BETWEEN ì—°ì‚°ìž ì‚¬ìš©)
 SELECT
     first_name, hire_date, salary
 FROM
     employees
 WHERE
     hire_date BETWEEN '03/01/01' AND '03/12/31';
--- 9. 2003³âµµ ÀÔ»çÇÑ »ç¿øÀÇ ÀÌ¸§°ú ÀÔ»çÀÏ ±×¸®°í ±Þ¿©¸¦ Ãâ·ÂÇÏ¼¼¿ä.(LIKE ¿¬»êÀÚ »ç¿ë)
+-- 9. 2003ë…„ë„ ìž…ì‚¬í•œ ì‚¬ì›ì˜ ì´ë¦„ê³¼ ìž…ì‚¬ì¼ ê·¸ë¦¬ê³  ê¸‰ì—¬ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.(LIKE ì—°ì‚°ìž ì‚¬ìš©)
 SELECT
     first_name, hire_date, salary
 FROM
     employees
 WHERE
     hire_date LIKE '03%';
--- 10. ¸ðµç »ç¿øÀÇ ÀÌ¸§°ú ±Þ¿©¸¦ ±Þ¿©°¡ ¸¹Àº »ç¿øºÎÅÍ ÀûÀº »ç¿ø¼ø¼­·Î Ãâ·ÂÇÏ¼¼¿ä.
+-- 10. ëª¨ë“  ì‚¬ì›ì˜ ì´ë¦„ê³¼ ê¸‰ì—¬ë¥¼ ê¸‰ì—¬ê°€ ë§Žì€ ì‚¬ì›ë¶€í„° ì ì€ ì‚¬ì›ìˆœì„œë¡œ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
     first_name, salary
 FROM
     employees
 ORDER BY salary DESC;
--- 11. À§ ÁúÀÇ¸¦ 60¹ø ºÎ¼­ÀÇ »ç¿ø¿¡ ´ëÇØ¼­¸¸ ÁúÀÇÇÏ¼¼¿ä. (ÄÃ·³: department_id)
+-- 11. ìœ„ ì§ˆì˜ë¥¼ 60ë²ˆ ë¶€ì„œì˜ ì‚¬ì›ì— ëŒ€í•´ì„œë§Œ ì§ˆì˜í•˜ì„¸ìš”. (ì»¬ëŸ¼: department_id)
 SELECT
     first_name, salary
 FROM
@@ -69,7 +69,7 @@ FROM
 WHERE
     department_id = 60
 ORDER BY salary DESC;
--- 12. Á÷¹«¾ÆÀÌµð°¡ IT_PROG ÀÌ°Å³ª, SA_MANÀÎ »ç¿øÀÇ ÀÌ¸§°ú Á÷¹«¾ÆÀÌµð¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+-- 12. ì§ë¬´ì•„ì´ë””ê°€ IT_PROG ì´ê±°ë‚˜, SA_MANì¸ ì‚¬ì›ì˜ ì´ë¦„ê³¼ ì§ë¬´ì•„ì´ë””ë¥¼ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
     first_name, job_id
 FROM
@@ -83,21 +83,21 @@ FROM
     employees
 WHERE
     job_id IN ('IT_PROG', 'SA_MAN');
--- 13. Steven King »ç¿øÀÇ Á¤º¸¸¦ ¡°Steven King »ç¿øÀÇ ±Þ¿©´Â 24000´Þ·¯ ÀÔ´Ï´Ù¡± Çü½ÄÀ¸·Î Ãâ·ÂÇÏ¼¼¿ä.
+-- 13. Steven King ì‚¬ì›ì˜ ì •ë³´ë¥¼ â€œSteven King ì‚¬ì›ì˜ ê¸‰ì—¬ëŠ” 24000ë‹¬ëŸ¬ ìž…ë‹ˆë‹¤â€ í˜•ì‹ìœ¼ë¡œ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
-    first_name || ' ' || last_name || ' »ç¿øÀÇ ±Þ¿©´Â ' || salary || '´Þ·¯ ÀÔ´Ï´Ù.' AS SK±Þ¿©
+    first_name || ' ' || last_name || ' ì‚¬ì›ì˜ ê¸‰ì—¬ëŠ” ' || salary || 'ë‹¬ëŸ¬ ìž…ë‹ˆë‹¤.' AS SKê¸‰ì—¬
 FROM
     employees
 WHERE
     first_name = 'Steven' AND last_name = 'King';
--- 14. ¸Å´ÏÀú(MAN) Á÷¹«¿¡ ÇØ´çÇÏ´Â »ç¿øÀÇ ÀÌ¸§°ú Á÷¹«¾ÆÀÌµð¸¦ Ãâ·ÂÇÏ¼¼¿ä. (ÄÃ·³:job_id)
+-- 14. ë§¤ë‹ˆì €(MAN) ì§ë¬´ì— í•´ë‹¹í•˜ëŠ” ì‚¬ì›ì˜ ì´ë¦„ê³¼ ì§ë¬´ì•„ì´ë””ë¥¼ ì¶œë ¥í•˜ì„¸ìš”. (ì»¬ëŸ¼:job_id)
 SELECT
     first_name, job_id
 FROM
     employees
 WHERE
     job_id LIKE '%MAN';
--- 15. ¸Å´ÏÀú(MAN) Á÷¹«¿¡ ÇØ´çÇÏ´Â »ç¿øÀÇ ÀÌ¸§°ú Á÷¹«¾ÆÀÌµð¸¦ Á÷¹«¾ÆÀÌµð ¼ø¼­´ë·Î Ãâ·ÂÇÏ¼¼¿ä.
+-- 15. ë§¤ë‹ˆì €(MAN) ì§ë¬´ì— í•´ë‹¹í•˜ëŠ” ì‚¬ì›ì˜ ì´ë¦„ê³¼ ì§ë¬´ì•„ì´ë””ë¥¼ ì§ë¬´ì•„ì´ë”” ìˆœì„œëŒ€ë¡œ ì¶œë ¥í•˜ì„¸ìš”.
 SELECT
     first_name, job_id
 FROM

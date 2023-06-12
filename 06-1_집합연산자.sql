@@ -1,9 +1,9 @@
 
--- ÁýÇÕ ¿¬»êÀÚ
--- UNION(ÇÕÁýÇÕ Áßº¹ x), UNION ALL(ÇÕÁýÇÕ Áßº¹ o), INTERSECT(±³ÁýÇÕ), MINUS(Â÷ÁýÇÕ)
--- À§ ¾Æ·¡ column °³¼ö¿Í µ¥ÀÌÅÍ Å¸ÀÔÀÌ Á¤È®È÷ ÀÏÄ¡ÇØ¾ß ÇÕ´Ï´Ù.
+-- ì§‘í•© ì—°ì‚°ìž
+-- UNION(í•©ì§‘í•© ì¤‘ë³µ x), UNION ALL(í•©ì§‘í•© ì¤‘ë³µ o), INTERSECT(êµì§‘í•©), MINUS(ì°¨ì§‘í•©)
+-- ìœ„ ì•„ëž˜ column ê°œìˆ˜ì™€ ë°ì´í„° íƒ€ìž…ì´ ì •í™•ížˆ ì¼ì¹˜í•´ì•¼ í•©ë‹ˆë‹¤.
 
--- UNION : ÇÕÁýÇÕ (Áßº¹À» Á¦°ÅÇÏ°í ÇÕÄ£ °ª)
+-- UNION : í•©ì§‘í•© (ì¤‘ë³µì„ ì œê±°í•˜ê³  í•©ì¹œ ê°’)
 SELECT
     employee_id, first_name
 FROM employees
@@ -14,7 +14,7 @@ SELECT
 FROM employees
 WHERE department_id = 20;
 
--- UNION ALL : ÇÕÁýÇÕ (Áßº¹À» Æ÷ÇÔÇÏ¿© ÇÕÄ£ °ª)
+-- UNION ALL : í•©ì§‘í•© (ì¤‘ë³µì„ í¬í•¨í•˜ì—¬ í•©ì¹œ ê°’)
 SELECT
     employee_id, first_name
 FROM employees
@@ -25,7 +25,7 @@ SELECT
 FROM employees
 WHERE department_id = 20;
 
--- INTERSECT : ±³ÁýÇÕ (Áßº¹µÇ´Â °ª)
+-- INTERSECT : êµì§‘í•© (ì¤‘ë³µë˜ëŠ” ê°’)
 SELECT
     employee_id, first_name
 FROM employees
@@ -36,7 +36,7 @@ SELECT
 FROM employees
 WHERE department_id = 20;
 
--- MINUS : Â÷ÁýÇÕ (A - B) Â÷ÁýÇÕÀº ¼ø¼­¿¡ ÀÇÇØ ½ÇÇà °á°ú°¡ ´Ù¸§.
+-- MINUS : ì°¨ì§‘í•© (A - B) ì°¨ì§‘í•©ì€ ìˆœì„œì— ì˜í•´ ì‹¤í–‰ ê²°ê³¼ê°€ ë‹¤ë¦„.
 SELECT
     employee_id, first_name
 FROM employees
@@ -47,7 +47,7 @@ SELECT
 FROM employees
 WHERE department_id = 20;
 
--- MINUS : Â÷ÁýÇÕ (B - A)
+-- MINUS : ì°¨ì§‘í•© (B - A)
 SELECT
     employee_id, first_name
 FROM employees

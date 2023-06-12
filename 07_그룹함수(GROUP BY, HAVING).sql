@@ -1,7 +1,7 @@
 
--- ±×·ì ÇÔ¼ö AVG, MAX, MIN, SUM, COUNT
+-- ê·¸ë£¹ í•¨ìˆ˜ AVG, MAX, MIN, SUM, COUNT
 
--- ±×·ìÈ­¸¦ ÇÏÁö ¾Ê°í ±×·ì ÇÔ¼ö¸¸À» »ç¿ëÇÏ¸é Å×ÀÌºí ÀüÃ¼¸¦ ±×·ìÈ­ÇØ¼­ ½ÇÇà
+-- ê·¸ë£¹í™”ë¥¼ í•˜ì§€ ì•Šê³  ê·¸ë£¹ í•¨ìˆ˜ë§Œì„ ì‚¬ìš©í•˜ë©´ í…Œì´ë¸” ì „ì²´ë¥¼ ê·¸ë£¹í™”í•´ì„œ ì‹¤í–‰
 SELECT
     AVG(salary),
     MAX(salary),
@@ -10,34 +10,34 @@ SELECT
     COUNT(salary)
 FROM employees;
 
-SELECT COUNT(*) FROM employees; -- ÃÑ Çà µ¥ÀÌÅÍÀÇ ¼ö (null Æ÷ÇÔ)
+SELECT COUNT(*) FROM employees; -- ì´ í–‰ ë°ì´í„°ì˜ ìˆ˜ (null í¬í•¨)
 SELECT COUNT(first_name) FROM employees;
-SELECT COUNT(commission_pct) FROM employees; -- nullÀÌ ¾Æ´Ñ ÇàÀÇ ¼ö
-SELECT COUNT(manager_id) FROM employees; -- nullÀÌ ¾Æ´Ñ ÇàÀÇ ¼ö
+SELECT COUNT(commission_pct) FROM employees; -- nullì´ ì•„ë‹Œ í–‰ì˜ ìˆ˜
+SELECT COUNT(manager_id) FROM employees; -- nullì´ ì•„ë‹Œ í–‰ì˜ ìˆ˜
 
--- ºÎ¼­º°·Î ±×·ìÈ­, ±×·ìÇÔ¼öÀÇ »ç¿ë
+-- ë¶€ì„œë³„ë¡œ ê·¸ë£¹í™”, ê·¸ë£¹í•¨ìˆ˜ì˜ ì‚¬ìš©
 SELECT
     department_id,
     AVG(salary)
 FROM employees
 GROUP BY department_id;
 
--- ÁÖÀÇÇÒ Á¡
--- ±×·ì ÇÔ¼ö´Â ÀÏ¹Ý ÄÃ·³°ú µ¿½Ã¿¡ ±×³É Ãâ·ÂÇÒ ¼ö´Â ¾ø½À´Ï´Ù.
+-- ì£¼ì˜í•  ì 
+-- ê·¸ë£¹ í•¨ìˆ˜ëŠ” ì¼ë°˜ ì»¬ëŸ¼ê³¼ ë™ì‹œì— ê·¸ëƒ¥ ì¶œë ¥í•  ìˆ˜ëŠ” ì—†ìŠµë‹ˆë‹¤.
 SELECT
     department_id,
     AVG(salary)
-FROM employees; -- ¿¡·¯
+FROM employees; -- ì—ëŸ¬
 
--- GROUP BY ÀýÀ» »ç¿ëÇÒ ¶§ GROUP Àý¿¡ ¹­ÀÌÁö ¾ÊÀ¸¸é ´Ù¸¥ ÄÃ·³À» Á¶È¸ÇÒ ¼ö ¾ø½À´Ï´Ù.
+-- GROUP BY ì ˆì„ ì‚¬ìš©í•  ë•Œ GROUP ì ˆì— ë¬¶ì´ì§€ ì•Šìœ¼ë©´ ë‹¤ë¥¸ ì»¬ëŸ¼ì„ ì¡°íšŒí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 SELECT
     job_id,
     department_id,
     AVG(salary)
 FROM employees
-GROUP BY department_id; -- ¿¡·¯
+GROUP BY department_id; -- ì—ëŸ¬
 
--- GROUP BYÀý 2°³ ÀÌ»ó »ç¿ë
+-- GROUP BYì ˆ 2ê°œ ì´ìƒ ì‚¬ìš©
 SELECT
     job_id,
     department_id,
@@ -46,7 +46,7 @@ FROM employees
 GROUP BY department_id, job_id
 ORDER BY department_id;
 
--- GROUP BY¸¦ ÅëÇØ ±×·ìÈ­¸¦ ÇÒ ¶§ Á¶°ÇÀ» °É °æ¿ì HAVINGÀ» »ç¿ë.
+-- GROUP BYë¥¼ í†µí•´ ê·¸ë£¹í™”ë¥¼ í•  ë•Œ ì¡°ê±´ì„ ê±¸ ê²½ìš° HAVINGì„ ì‚¬ìš©.
 SELECT
     department_id,
     AVG(salary)
@@ -61,10 +61,10 @@ FROM employees
 GROUP BY job_id
 HAVING COUNT(*) >= 5;
 
--- ºÎ¼­ ¾ÆÀÌµð°¡ 50 ÀÌ»óÀÎ °ÍµéÀ» ±×·ìÈ­ ½ÃÅ°°í, ±×·ì ¿ù±Þ Æò±ÕÀÌ 5000 ÀÌ»ó¸¸ Á¶È¸
+-- ë¶€ì„œ ì•„ì´ë””ê°€ 50 ì´ìƒì¸ ê²ƒë“¤ì„ ê·¸ë£¹í™” ì‹œí‚¤ê³ , ê·¸ë£¹ ì›”ê¸‰ í‰ê· ì´ 5000 ì´ìƒë§Œ ì¡°íšŒ
 SELECT
     department_id,
-    AVG(salary) AS Æò±Õ
+    AVG(salary) AS í‰ê· 
 FROM employees
 WHERE department_id >= 50
 GROUP BY department_id
